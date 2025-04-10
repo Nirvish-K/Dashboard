@@ -431,7 +431,7 @@ def insights_page():
 
 st.sidebar.title("Go through the different pages below")
 
-page = st.sidebar.radio("Pages", ["README", "Ad and Sales Metrics", "Trend Identification", "Exploratory Data Analysis", "Automated Insights & Recommendations"])
+page = st.sidebar.radio("Pages", ["Ad and Sales Metrics", "Trend Identification", "Exploratory Data Analysis", "Automated Insights & Recommendations"])
 
 
 ad_data = pd.read_excel('ad-data.xlsx', engine='openpyxl')
