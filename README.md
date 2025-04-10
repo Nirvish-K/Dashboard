@@ -1,3 +1,7 @@
+## **Link to dashboard**
+
+https://dashboard-am8dxddbaz4ipbqqyy2iqh.streamlit.app
+
 ## **Task**
 
 The task given was to make a proof-of-concept "platform" to optimize Meta Ads performance. Due to other schedules, I was only able to do some parts of the case study for instance I wasn't able to implement the API integration code, although I believe that would have been to show that I have the knowledge of using API's to fetch data. I currently don't have either a facebook or shopify account so no data would be in there to analyze, but in the architecture diagram section I have detailed on this process and more. The web dashboard uses sample datasets found on kaggle, go through the multiple pages of what might be included on the dashboard. Realistically I wouldn't use streamlit to create a dashboard but is it makes creating things easier to create and visualize.
@@ -8,6 +12,7 @@ The target audience for this platform is most likely businesses looking to optim
 
 ## **Architecture Diagram**
 
+![image](diagram.png)
 In the frontend we use react and javascript, using rest API's we can connect to the API gateway which will handle things like authorization, rate limiting, or error handling. Authorization is done through OAuth 2.0 which is a safe way to log in users and also allows us to generate tokens (& refresh tokens) with which we can fetch data from facebook (meta) and shopify API”s. We also set up cron jobs or could use apache airflow to schedule periodic data fetching (gain access through tokens stored in database) for analysis. Finally we store the data, which includes things like user activity/preferences and the generated ML/AI data into NoSQL databases such as mongoDB (NoSQL better for later scalability). The architecture doesn’t dive deep into the data pipeline but we want to be able to process/transform the data to make it usable for analysis. We can do this using some tools like Apache spark, and for data visualization we can embed tableau into the frontend. The architecture also doesn’t get into the details of the payment and notification system which are separated as they are not directly related to the data modeling. It also doesn’t suggest using a microservices architecture since that's something that’s suited for scaling up, for startups it’s best to use a monolithic architecture. But considering the platform intended to design it’s best to keep in mind scalability from the start.
 
 Security:

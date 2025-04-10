@@ -429,15 +429,6 @@ def insights_page():
              "includes campaigns of high and low budget, so it can be used to identify similarities and found out factors which made the low budget campaigns successful. "
              "Further A/B testing can also be recommended based on further analysis of this cluster/data")
 
-
-def read_me(file_name):
-    st.image('diagram.png')
-    with open(file_name, 'r') as f:
-        file = f.read()
-    st.markdown(file)
-
-
-
 st.sidebar.title("Go through the different pages below")
 
 page = st.sidebar.radio("Pages", ["README", "Ad and Sales Metrics", "Trend Identification", "Exploratory Data Analysis", "Automated Insights & Recommendations"])
@@ -446,9 +437,8 @@ page = st.sidebar.radio("Pages", ["README", "Ad and Sales Metrics", "Trend Ident
 ad_data = pd.read_excel('ad-data.xlsx', engine='openpyxl')
 customer_data = pd.read_csv('customer-data.csv')
 
-if page == "README":
-    read_me('README.md')
-elif page == "Ad and Sales Metrics":
+
+if page == "Ad and Sales Metrics":
     ad_page(ad_data)
 elif page == "Trend Identification":
     trends_page(ad_data)
